@@ -1,0 +1,21 @@
+
+:root {
+    --color-primary:      #3B0D8A;
+    --color-primary-dark: #2a0963;
+    --color-accent:       #F59E0B;
+    
+    --font-display: 'Inter', sans-serif;
+    --font-body:    'Inter', sans-serif;
+}
+
+body.app-body {
+    font-family: var(--font-body);
+    font-size: 14px;
+    background-color: #F4F5F9;
+    -webkit-font-smoothing: antialiased;
+}
+
+.main-container {
+    max-width: 960px;
+}
+

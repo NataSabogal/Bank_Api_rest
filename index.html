@@ -1,11 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>TamalBank — Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="app-body">
+
+    <header class="navbar sticky-top px-4 py-2 d-flex align-items-center justify-content-between app-header">
+        <div class="d-flex align-items-center gap-2">
+            <span class="fs-4">🏦</span>
+            <span class="brand-logo">TamalBank</span>
+        </div>
+
+        <nav class="d-none d-md-flex gap-2">
+            <a href="index.html" class="nav-link-custom active">Dashboard</a>
+            <a href="history.html" class="nav-link-custom">History</a>
+            <a href="stats.html" class="nav-link-custom">Stats</a>
+            <a href="tamalbits.html" class="nav-link-custom">Tamalbits</a>
+        </nav>
+
+        <div class="d-flex align-items-center gap-3">
+            <div class="d-flex align-items-center gap-2">
+                <span class="avatar-name d-none d-sm-block">Alex Student</span>
+            </div>
+            <button class="btn btn-notif d-flex align-items-center justify-content-center" aria-label="Notificaciones">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="container py-4 py-md-5 main-container">
+
+        <section class="row g-4 mb-4">
+
+            <div class="col-md-7">
+                <div class="card card-balance h-100 p-4 position-relative overflow-hidden">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="card-label-mini">AVAILABLE BALANCE</span>
+                        <button class="btn btn-refresh p-1 z-1" title="Actualizar">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="23 4 23 10 17 10" />
+                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <h2 class="balance-amount mb-4 z-1">$1,240.00</h2>
+                    
+                    <div class="mt-auto z-1">
+                        <div class="progress balance-progress-container">
+                            <div class="progress-bar balance-progress-fill" role="progressbar"></div>
+                        </div>
+                        <div class="balance-percentage mt-2">75% of goal</div>
+                    </div>
+                    
+                    <svg class="bg-watermark" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="5" width="20" height="14" rx="2" />
+                        <path d="M2 10h20" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="card card-tamalbit h-100 p-4 d-flex flex-column justify-content-between">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <span class="card-label-mini">TAMALBITS EARNED</span>
+                        <div class="tamalbit-icon px-2 py-1 fs-4">🌽</div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center gap-2 my-2">
+                        <span class="fs-1 filter-shadow">⚡</span>
+                        <span class="tamalbit-amount">3</span>
+                    </div>
+                    
+                    <div class="hint-box mt-auto d-flex align-items-center gap-2">
+                        <span>💡</span>
+                        <span>Earn 1 Tamalbit per $10 spent on Orejas de Pollo</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="card section-card p-4 mb-4">
+            <div class="d-flex align-items-center gap-2 mb-4">
+                <span class="section-icon fs-5">⊕</span>
+                <h3 class="section-title mb-0">Register Expense</h3>
+            </div>
+
+            <form>
+                <div class="row g-3 g-md-4">
+                    <div class="col-md-6">
+                        <label class="form-label custom-label">User name</label>
+                        <select class="form-select custom-input">
+                            <option value="alex">Alex Student</option>
+                            <option value="maria">María García</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label custom-label">Amount ($)</label>
+                        <input type="number" class="form-control custom-input" placeholder="0.00" min="0" step="0.01">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label custom-label">Category</label>
+                        <select class="form-select custom-input">
+                            <option value="servicios">Servicios Públicos</option>
+                            <option value="alimentacion">Alimentación</option>
+                            <option value="transporte">Transporte</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label custom-label">Item/Product</label>
+                        <select class="form-select custom-input">
+                            <option value="">Select Item</option>
+                            <option value="orejas-de-pollo">Orejas de Pollo</option>
+                            <option value="internet">Internet Bill</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label custom-label">Optional Description</label>
+                        <textarea class="form-control custom-input" rows="2" placeholder="Tell us more about this expense..."></textarea>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-4">
+                    <button type="button" class="btn btn-primary-custom px-4 py-2 d-flex align-items-center gap-2">
+                        Register Expense <span class="btn-arrow">▶</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="card section-card p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="section-title mb-0">Expense History</h3>
+                <a href="history.html" class="link-view-all">View All ›</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table align-middle custom-table mb-0">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>User</th>
+                            <th>Category</th>
+                            <th>Item</th>
+                            <th>Amount</th>
+                            <th>Tamalbits</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Oct 24, 2023</td>
+                            <td>Alex Student</td>
+                            <td><span class="badge badge-alimentacion">Alimentación</span></td>
+                            <td>Orejas de Pollo</td>
+                            <td class="amount-negative">-$20.00</td>
+                            <td><span class="badge badge-tamalbit-earned">⚡ +2</span></td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>Oct 23, 2023</td>
+                            <td>Alex Student</td>
+                            <td><span class="badge badge-servicios">Servicios</span></td>
+                            <td>Internet Bill</td>
+                            <td class="amount-negative">-$55.00</td>
+                            <td><span class="badge badge-tamalbit-zero">⚡ +0</span></td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>Oct 22, 2023</td>
+                            <td>Alex Student</td>
+                            <td><span class="badge badge-transporte">Transporte</span></td>
+                            <td>Bus Pass</td>
+                            <td class="amount-negative">-$12.00</td>
+                            <td><span class="badge badge-tamalbit-earned">⚡ +1</span></td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>Oct 20, 2023</td>
+                            <td>Alex Student</td>
+                            <td><span class="badge badge-otros">Otros</span></td>
+                            <td>Stationery</td>
+                            <td class="amount-negative">-$8.50</td>
+                            <td><span class="badge badge-tamalbit-zero">⚡ +0</span></td>
+                            <td>✅</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
