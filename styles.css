@@ -1,21 +1,37 @@
 
 :root {
-    --color-primary:      #3B0D8A;
-    --color-primary-dark: #2a0963;
-    --color-accent:       #F59E0B;
+    --red-dark:       #7C1D1D;
+    --red-mid:        #991F1F;
+    --red-light:      #B91C1C;
     
-    --font-display: 'Inter', sans-serif;
-    --font-body:    'Inter', sans-serif;
+    --gold:           #F59E0B;
+    --gold-dark:      #D97706;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body:    'DM Sans', sans-serif;
 }
 
 body.app-body {
     font-family: var(--font-body);
     font-size: 14px;
-    background-color: #F4F5F9;
-    -webkit-font-smoothing: antialiased;
+    background-color: #FFFBF5; /* --cream */
+    color: #1A0A0A;
 }
 
-.main-container {
-    max-width: 960px;
+body {
+    font-family: var(--font-body);
 }
 
+.brand-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--red-dark);
+    letter-spacing: -0.3px;
+}
+
+.app-header {
+    height: 64px;
+    border-bottom: 1px solid #E8DDD4;
+    box-shadow: 0 1px 4px rgba(124,29,29,0.08);
+}

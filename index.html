@@ -4,214 +4,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TamalBank — Dashboard</title>
+    <title>CarniBank — Carnicería Premium</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="app-body">
 
-    <header class="navbar sticky-top px-4 py-2 d-flex align-items-center justify-content-between app-header">
-        <div class="d-flex align-items-center gap-2">
-            <span class="fs-4">🏦</span>
-            <span class="brand-logo">TamalBank</span>
-        </div>
+    <header class="app-header sticky-top bg-white">
+        <div class="container-fluid px-4 d-flex align-items-center justify-content-between h-100">
+            <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none">
+                <span class="fs-4">🥩</span>
+                <span class="brand-name">CarniBank</span>
+            </a>
 
-        <nav class="d-none d-md-flex gap-2">
-            <a href="index.html" class="nav-link-custom active">Dashboard</a>
-            <a href="history.html" class="nav-link-custom">History</a>
-            <a href="stats.html" class="nav-link-custom">Stats</a>
-            <a href="tamalbits.html" class="nav-link-custom">Tamalbits</a>
-        </nav>
-
-        <div class="d-flex align-items-center gap-3">
-            <div class="d-flex align-items-center gap-2">
-                <span class="avatar-name d-none d-sm-block">Alex Student</span>
+            <div class="d-flex align-items-center gap-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="user-name d-none d-sm-block">User</span>
+                    <img src="https://i.pravatar.cc/150?" alt="User" class="rounded-circle border" width="34"
+                        height="34">
+                </div>
+                <button
+                    class="btn btn-light rounded-circle p-2 d-flex align-items-center justify-content-center text-secondary border-0"
+                    aria-label="Menú">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
             </div>
-            <button class="btn btn-notif d-flex align-items-center justify-content-center" aria-label="Notificaciones">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                </svg>
-            </button>
         </div>
     </header>
 
-    <main class="container py-4 py-md-5 main-container">
+    <section class="bg-white py-3 border-bottom shadow-sm">
+        <div class="container-fluid px-4">
+            <div class="row g-3">
 
-        <section class="row g-4 mb-4">
-
-            <div class="col-md-7">
-                <div class="card card-balance h-100 p-4 position-relative overflow-hidden">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span class="card-label-mini">AVAILABLE BALANCE</span>
-                        <button class="btn btn-refresh p-1 z-1" title="Actualizar">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <polyline points="23 4 23 10 17 10" />
-                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
-                            </svg>
-                        </button>
-                    </div>
-                    
-                    <h2 class="balance-amount mb-4 z-1">$1,240.00</h2>
-                    
-                    <div class="mt-auto z-1">
-                        <div class="progress balance-progress-container">
-                            <div class="progress-bar balance-progress-fill" role="progressbar"></div>
+                <div class="col-md-6">
+                    <div class="card card-balance border-0 h-100 p-4 position-relative overflow-hidden text-white">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="banner-label">AVAILABLE BALANCE</span>
+                            <button class="btn-refresh rounded-circle p-1 z-1" title="Actualizar">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="23 4 23 10 17 10" />
+                                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                                </svg>
+                            </button>
                         </div>
-                        <div class="balance-percentage mt-2">75% of goal</div>
-                    </div>
-                    
-                    <svg class="bg-watermark" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="2" y="5" width="20" height="14" rx="2" />
-                        <path d="M2 10h20" />
-                    </svg>
-                </div>
-            </div>
-
-            <div class="col-md-5">
-                <div class="card card-tamalbit h-100 p-4 d-flex flex-column justify-content-between">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <span class="card-label-mini">TAMALBITS EARNED</span>
-                        <div class="tamalbit-icon px-2 py-1 fs-4">🌽</div>
-                    </div>
-                    
-                    <div class="d-flex align-items-center gap-2 my-2">
-                        <span class="fs-1 filter-shadow">⚡</span>
-                        <span class="tamalbit-amount">3</span>
-                    </div>
-                    
-                    <div class="hint-box mt-auto d-flex align-items-center gap-2">
-                        <span>💡</span>
-                        <span>Earn 1 Tamalbit per $10 spent on Orejas de Pollo</span>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <section class="card section-card p-4 mb-4">
-            <div class="d-flex align-items-center gap-2 mb-4">
-                <span class="section-icon fs-5">⊕</span>
-                <h3 class="section-title mb-0">Register Expense</h3>
-            </div>
-
-            <form>
-                <div class="row g-3 g-md-4">
-                    <div class="col-md-6">
-                        <label class="form-label custom-label">User name</label>
-                        <select class="form-select custom-input">
-                            <option value="alex">Alex Student</option>
-                            <option value="maria">María García</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label custom-label">Amount ($)</label>
-                        <input type="number" class="form-control custom-input" placeholder="0.00" min="0" step="0.01">
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label custom-label">Category</label>
-                        <select class="form-select custom-input">
-                            <option value="servicios">Servicios Públicos</option>
-                            <option value="alimentacion">Alimentación</option>
-                            <option value="transporte">Transporte</option>
-                            <option value="otros">Otros</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label custom-label">Item/Product</label>
-                        <select class="form-select custom-input">
-                            <option value="">Select Item</option>
-                            <option value="orejas-de-pollo">Orejas de Pollo</option>
-                            <option value="internet">Internet Bill</option>
-                        </select>
-                    </div>
-
-                    <div class="col-12">
-                        <label class="form-label custom-label">Optional Description</label>
-                        <textarea class="form-control custom-input" rows="2" placeholder="Tell us more about this expense..."></textarea>
+                        <div class="banner-amount z-1">$1,240.00</div>
+                        <svg class="bg-watermark" width="60" height="60" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="5" width="20" height="14" rx="2" />
+                            <path d="M2 10h20" />
+                        </svg>
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-end mt-4">
-                    <button type="button" class="btn btn-primary-custom px-4 py-2 d-flex align-items-center gap-2">
-                        Register Expense <span class="btn-arrow">▶</span>
-                    </button>
+                <div class="col-md-6">
+                    <div class="card card-tamalbit border-0 h-100 p-4 text-white">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="banner-label">TAMALBITS EARNED</span>
+                            <div class="tamalbit-icon fs-5">🌽</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <span class="fs-2 filter-shadow">⚡</span>
+                            <span class="tamalbit-number">3</span>
+                        </div>
+                        <div class="hint-box mt-auto d-flex align-items-center gap-2">
+                            <span>💡</span>
+                            <span>Earn 1 Tamalbit per $10 spent on Orejas de Pollo</span>
+                        </div>
+                    </div>
                 </div>
-            </form>
-        </section>
 
-        <section class="card section-card p-4">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3 class="section-title mb-0">Expense History</h3>
-                <a href="history.html" class="link-view-all">View All ›</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container-fluid px-4 py-5">
+        <div
+            class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 mb-4">
+            <div>
+                <p class="catalog-subtitle mb-1">Selección del día</p>
+                <h2 class="catalog-title mb-0">Prime Selection</h2>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+                <button class="filter-btn active">Todos</button>
+                <button class="filter-btn">Cerdo</button>
+                <button class="filter-btn">Res</button>
+                <button class="filter-btn">Embutidos</button>
+            </div>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="card product-card border-0 h-100 d-flex flex-column">
+                    <div class="product-img-wrap">
+                        <img src="https://images.pexels.com/photos/60616/fried-chicken-chicken-fried-crunchy-60616.jpeg?auto=compress&cs=tinysrgb&w=400"
+                            alt="Orejas de Pollo" class="product-img">
+                        <span class="badge badge-tamalbit">⚡ Tamalbit</span>
+                    </div>
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="badge rounded-pill bg-cerdo-subtle text-cerdo">Pollo</span>
+                            <span class="product-price">$10.00</span>
+                        </div>
+                        <h5 class="product-name">Orejas de Pollo</h5>
+                        <div class="mt-auto pt-3 d-flex align-items-center justify-content-between">
+                            <div class="qty-control d-flex align-items-center">
+                                <button class="qty-btn">−</button>
+                                <span class="qty-value">1</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                            <button class="btn btn-add-cart">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="table-responsive">
-                <table class="table align-middle custom-table mb-0">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>User</th>
-                            <th>Category</th>
-                            <th>Item</th>
-                            <th>Amount</th>
-                            <th>Tamalbits</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Oct 24, 2023</td>
-                            <td>Alex Student</td>
-                            <td><span class="badge badge-alimentacion">Alimentación</span></td>
-                            <td>Orejas de Pollo</td>
-                            <td class="amount-negative">-$20.00</td>
-                            <td><span class="badge badge-tamalbit-earned">⚡ +2</span></td>
-                            <td>✅</td>
-                        </tr>
-                        <tr>
-                            <td>Oct 23, 2023</td>
-                            <td>Alex Student</td>
-                            <td><span class="badge badge-servicios">Servicios</span></td>
-                            <td>Internet Bill</td>
-                            <td class="amount-negative">-$55.00</td>
-                            <td><span class="badge badge-tamalbit-zero">⚡ +0</span></td>
-                            <td>✅</td>
-                        </tr>
-                        <tr>
-                            <td>Oct 22, 2023</td>
-                            <td>Alex Student</td>
-                            <td><span class="badge badge-transporte">Transporte</span></td>
-                            <td>Bus Pass</td>
-                            <td class="amount-negative">-$12.00</td>
-                            <td><span class="badge badge-tamalbit-earned">⚡ +1</span></td>
-                            <td>✅</td>
-                        </tr>
-                        <tr>
-                            <td>Oct 20, 2023</td>
-                            <td>Alex Student</td>
-                            <td><span class="badge badge-otros">Otros</span></td>
-                            <td>Stationery</td>
-                            <td class="amount-negative">-$8.50</td>
-                            <td><span class="badge badge-tamalbit-zero">⚡ +0</span></td>
-                            <td>✅</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card product-card border-0 h-100 d-flex flex-column">
+                    <div class="product-img-wrap">
+                        <img src="https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=400"
+                            alt="Costilla de Res" class="product-img">
+                    </div>
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="badge rounded-pill bg-res-subtle text-res">Res</span>
+                            <span class="product-price">$24.90</span>
+                        </div>
+                        <h5 class="product-name">Punta de Anca</h5>
+                        <div class="mt-auto pt-3 d-flex align-items-center justify-content-between">
+                            <div class="qty-control d-flex align-items-center">
+                                <button class="qty-btn">−</button>
+                                <span class="qty-value">1</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                            <button class="btn btn-add-cart">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
+            <div class="col-sm-6 col-lg-4">
+                <div class="card product-card border-0 h-100 d-flex flex-column">
+                    <div class="product-img-wrap">
+                        <img src="https://images.pexels.com/photos/3928854/pexels-photo-3928854.png?auto=compress&cs=tinysrgb&w=400"
+                            alt="Chorizo Artesanal" class="product-img">
+                    </div>
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="badge rounded-pill bg-embutidos-subtle text-embutidos">Pollo</span>
+                            <span class="product-price">$15.00</span>
+                        </div>
+                        <h5 class="product-name">Chuzo de Pollo</h5>
+                        <div class="mt-auto pt-3 d-flex align-items-center justify-content-between">
+                            <div class="qty-control d-flex align-items-center">
+                                <button class="qty-btn">−</button>
+                                <span class="qty-value">1</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                            <button class="btn btn-add-cart">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="card product-card border-0 h-100 d-flex flex-column">
+                    <div class="product-img-wrap">
+                        <img src="https://images.pexels.com/photos/1930760/pexels-photo-1930760.jpeg?auto=compress&cs=tinysrgb&w=400"
+                            alt="Panceta Premium" class="product-img">
+                    </div>
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="badge rounded-pill bg-cerdo-subtle text-cerdo">Embutido</span>
+                            <span class="product-price">$18.20</span>
+                        </div>
+                        <h5 class="product-name">prosciutto</h5>
+                        <div class="mt-auto pt-3 d-flex align-items-center justify-content-between">
+                            <div class="qty-control d-flex align-items-center">
+                                <button class="qty-btn">−</button>
+                                <span class="qty-value">1</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                            <button class="btn btn-add-cart">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="card product-card border-0 h-100 d-flex flex-column">
+                    <div class="product-img-wrap">
+                        <img src="https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=400"
+                            alt="Filete de Wagyu" class="product-img">
+                        <span class="badge badge-premium">⭐ Premium</span>
+                    </div>
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="badge rounded-pill bg-res-subtle text-res">Res</span>
+                            <span class="product-price">$85.00</span>
+                        </div>
+                        <h5 class="product-name">Filete de Wagyu</h5>
+                        <div class="mt-auto pt-3 d-flex align-items-center justify-content-between">
+                            <div class="qty-control d-flex align-items-center">
+                                <button class="qty-btn">−</button>
+                                <span class="qty-value">1</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                            <button class="btn btn-add-cart">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="card product-card border-0 h-100 d-flex flex-column">
+                    <div class="product-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&q=80"
+                            alt="Cochinita" class="product-img">
+                    </div>
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="badge rounded-pill bg-cerdo-subtle text-cerdo">Cerdo</span>
+                            <span class="product-price">$14.50</span>
+                        </div>
+                        <h5 class="product-name">Cochinita</h5>
+                        <div class="mt-auto pt-3 d-flex align-items-center justify-content-between">
+                            <div class="qty-control d-flex align-items-center">
+                                <button class="qty-btn">−</button>
+                                <span class="qty-value">1</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                            <button class="btn btn-add-cart">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
+
+    <footer class="bg-white border-top py-4 mt-auto">
+        <div
+            class="container-fluid px-4 d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+            <div class="d-flex align-items-center gap-2">
+                <span>🥩</span>
+                <span class="footer-brand">CarniBank</span>
+            </div>
+            <p class="footer-copy mb-0">© 2026 CarniBank. Secure Culinary Equity.</p>
+            
+        </div>
+    </footer>
+
+    <button class="fab-cart" onclick="window.location.href='panel.html'">
+        <span class="fab-cart-icon">🛒</span>
+        <span class="fab-cart-info">
+            <span class="fab-cart-count">2 Items</span>
+            <span class="fab-cart-total">$37.40</span>
+        </span>
+    </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
