@@ -1,0 +1,18 @@
+base de datos
+ - script sql schema-db.sql
+
+    clases:
+        - 
+
+frontend
+ - html y css (completo) - LOGIN
+
+backend
+ - conexion con api externa
+ - conexion a base de datos
+ - logica de manejo de nuestra db local
+ - login
+
+
+infra
+ - docker-compose.yml para desplegar en local (db, backend, frontend, api externa)

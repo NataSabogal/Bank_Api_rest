@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CarniBank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="login-body">
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="text-center mb-2">
+                <span class="fs-1">🥩</span>
+                <div class="brand-name mt-2">CarniBank</div>
+            </div>
+            <p class="login-subtitle">Secure Culinary Equity</p>
+
+            <form id="loginForm" class="mt-4">
+                <div class="mb-3">
+                    <label class="login-label">Full Name</label>
+                    <input type="text" class="form-control custom-input" id="nameInput"
+                        placeholder="e.g. BEDOYA PAYAN JUAN PABLO" required autocomplete="off">
+                </div>
+                <div class="mb-4">
+                    <label class="login-label">Person ID (PIN)</label>
+                    <input type="password" class="form-control custom-input" id="personIdInput"
+                        placeholder="e.g. 240420241060" required autocomplete="off">
+                </div>
+
+                <div id="loginError" class="alert alert-danger d-none py-2"></div>
+
+                <button type="submit" class="btn btn-login w-100 py-3" id="loginBtn">
+                    <span id="loginBtnText">Access Your Account</span>
+                    <span id="loginSpinner" class="spinner-border spinner-border-sm d-none" role="status"></span>
+                </button>
+            </form>
+
+            <p class="login-hint mt-4">
+                <span class="opacity-75">Use your full name and Person ID provided by the bank.</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('nameInput').value.trim();
+            const personId = document.getElementById('personIdInput').value.trim();
+            const errorDiv = document.getElementById('loginError');
+            const btn = document.getElementById('loginBtn');
+            const btnText = document.getElementById('loginBtnText');
+            const spinner = document.getElementById('loginSpinner');
+
+            errorDiv.classList.add('d-none');
+            btn.disabled = true;
+            btnText.textContent = 'Verifying...';
+            spinner.classList.remove('d-none');
+
+            try {
+                const res = await fetch('/api/login.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, personId })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    sessionStorage.setItem('personId', data.personId);
+                    sessionStorage.setItem('personName', data.name);
+                    window.location.href = 'index.html';
+                } else {
+                    errorDiv.textContent = data.error;
+                    errorDiv.classList.remove('d-none');
+                    btn.disabled = false;
+                    btnText.textContent = 'Access Your Account';
+                    spinner.classList.add('d-none');
+                }
+            } catch (err) {
+                errorDiv.textContent = 'Connection error. Please try again.';
+                errorDiv.classList.remove('d-none');
+                btn.disabled = false;
+                btnText.textContent = 'Access Your Account';
+                spinner.classList.add('d-none');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
